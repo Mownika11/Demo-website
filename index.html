@@ -2,55 +2,47 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advanced Business Website</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>We Love All People</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
-        .hero {
-    background: url('https://t3.ftcdn.net/jpg/05/14/95/12/360_F_514951224_2dxMLbIw5qNRdPGD003chpbVcxWtcp7K.jpg') no-repeat center center/cover;
-}
-
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
             margin: 0;
             padding: 0;
         }
 
-        .navbar {
-            background-color: transparent;
-            padding: 15px 0;
-        }
-
-        .navbar .nav-link {
-            color: white !important;
-            font-size: 1.1rem;
-            margin-right: 15px;
-        }
-
-        .navbar-brand {
-            font-family: 'Pacifico', cursive;
-            font-size: 2rem;
-            color: white !important;
-        }
-
+        /* Hero Section */
         .hero {
-            background-color: skyblue;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            padding-left: 8%;
+            background: url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2hpbGRyZW58ZW58MHx8MHx8fDA%3D') no-repeat center center/cover;
+            height: 90vh;
+            position: relative;
+            text-align: center;
             color: white;
         }
 
-        .hero-content {
-            max-width: 50%;
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 2;
+            padding-top: 150px;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 4rem;
             font-weight: bold;
-            margin-bottom: 20px;
         }
 
         .hero p {
@@ -58,56 +50,195 @@
             margin-bottom: 20px;
         }
 
-        .btn-primary {
-            background-color: #007bff;
-            border: none;
-            padding: 12px 25px;
+        .hero .btn {
             font-size: 1.2rem;
+            margin: 10px;
+            padding: 12px 20px;
+            border-radius: 50px;
         }
 
-        .btn-outline-light {
-            border: 2px solid white;
+        /* Info Boxes */
+        .info-boxes {
+            background: #fff;
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .info-box {
+            background: #ffc107;
+            padding: 30px;
+            margin: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+        }
+
+        .show {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+
+        /* What We Are Doing Section */
+        .doing {
+            background: url('https://images.pexels.com/photos/1739842/pexels-photo-1739842.jpeg?cs=srgb&dl=pexels-hiteshchoudhary-1739842.jpg&fm=jpg') no-repeat center center/cover;
+            height: 70vh;
+            position: relative;
+            text-align: center;
             color: white;
-            padding: 12px 25px;
-            font-size: 1.2rem;
-            margin-left: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .doing::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .doing .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Core Values */
+        .core-values {
+            background: #fff;
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .core-values h2 {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 30px;
+            color: #ffc107;
+        }
+
+        .core-values .row {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .core-values .col-md-4 {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ddd;
+            margin: 10px;
+            border-radius: 10px;
+            width: 30%;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+        }
+
+        .core-values .col-md-4.show {
+            opacity: 1 !important;
+            transform: scale(1) !important;
+        }
+
+        .core-values h4 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ffc107;
         }
     </style>
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#home">MOWNI</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                    <li class="nav-item"><a class="btn btn-primary" href="#get-started">Get Started</a></li>
-                </ul>
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container">
+        <h1>WE LOVE ALL PEOPLE</h1>
+        <p>Helping people with love and care. Supporting communities in need.</p>
+        <button class="btn btn-warning">Our Mission</button>
+        <button class="btn btn-danger">Donate Now</button>
+    </div>
+</section>
+
+<!-- Info Boxes -->
+<section class="info-boxes">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="info-box">
+                    <h4>Healthy Food</h4>
+                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="info-box">
+                    <h4>Pure Water</h4>
+                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="info-box">
+                    <h4>Medical Facilities</h4>
+                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="info-box">
+                    <h4>Pure Education</h4>
+                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.</p>
+                </div>
             </div>
         </div>
-    </nav>
+    </div>
+</section>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>Better Solutions For Your Business</h1>
-            <p>We are a team of talented designers making websites with Bootstrap</p>
-            <a href="#get-started" class="btn btn-primary">Get Started</a>
-            <a href="#video" class="btn btn-outline-light">Watch Video</a>
+<!-- What We Are Doing -->
+<section class="doing" data-aos="fade-up">
+    <div class="container">
+        <h2>What We Are Doing</h2>
+        <p>We are working towards providing essential resources, education, and medical support to those in need.</p>
+        <button class="btn btn-warning">Learn More</button>
+    </div>
+</section>
+
+<!-- Core Values -->
+<section class="core-values">
+    <div class="container">
+        <h2>Our Core Values</h2>
+        <div class="row">
+            <div class="col-md-4 core-item">
+                <h4>Service Beyond Self</h4>
+                <p>We prioritize service over personal gain.</p>
+            </div>
+            <div class="col-md-4 core-item">
+                <h4>Integrity</h4>
+                <p>We uphold honesty and transparency.</p>
+            </div>
+            <div class="col-md-4 core-item">
+                <h4>Community Focus</h4>
+                <p>We foster strong community relationships.</p>
+            </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    AOS.init();
+
+    window.addEventListener('scroll', function () {
+        let elements = document.querySelectorAll('.info-box, .core-item');
+        let windowHeight = window.innerHeight;
+        
+        elements.forEach((el, index) => {
+            let position = el.getBoundingClientRect().top;
+            if (position < windowHeight - 50) {
+                setTimeout(() => el.classList.add('show'), index * 200);
+            }
+        });
+    });
+</script>
+
 </body>
 </html>
